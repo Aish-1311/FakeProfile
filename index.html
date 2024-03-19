@@ -82,7 +82,7 @@
       var profilePic = document.querySelector('input[name="profilePic"]:checked').value;
       
       // Define rules for fake profile detection (dummy rules)
-      if (followerCount > 10000 && followingCount < 100 && postCount < 10 && accountType === "public" && profilePic === "no") {
+      if (followerCount > 10000 && followingCount < 100 && postCount < 20 && accountType === "public" && profilePic === "no") {
         document.getElementById("result").innerHTML = "Username : " + username + "  is likely a Fake Profile.";
       } else {
         document.getElementById("result").innerHTML = "Username : " + username + "  is likely a Genuine Profile.";
