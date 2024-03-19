@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberGaurd</title>
+  <link rel="icon" href="https://icons.veryicon.com/png/o/education-technology/technology-big-data-visualization/network-detection.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("https://t3.ftcdn.net/jpg/03/89/32/80/360_F_389328016_ak3iUrk15slWfEZdYL96O6eKTUyImDeC.jpg");
+      background-size: cover;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    input[type="number"], input[type="text"], input[type="radio"] {
+      margin-bottom: 10px;
+      padding: 6px;
+      color: black;
+    }
+    input[type="radio"] {
+      margin-right: 5px;
+      transform: scale(1.3);
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 29px;
+      padding: 19px;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 17px;
+    }
+    label{
+        color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color: #fff;">Social Media Fake Profile Detector</h1>
+    <h2 style="color: #fff;">Enter the account details</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter username"><br>
+    <label for="followerCount">Follower Count:</label>
+    <input type="number" id="followerCount" placeholder="Enter follower count"><br>
+    <label for="followingCount">Following Count:</label>
+    <input type="number" id="followingCount" placeholder="Enter following count"><br>
+    <label for="postCount">Post Count:</label>
+    <input type="number" id="postCount" placeholder="Enter post count"><br>
+    <label>Account Type:</label><br>
+    <input type="radio" id="publicAccount" name="accountType" value="public">
+    <label for="publicAccount">Public</label>
+    <input type="radio" id="privateAccount" name="accountType" value="private">
+    <label for="privateAccount">Private</label><br>
+    <label>Profile Picture:</label><br>
+    <input type="radio" id="profilePicYes" name="profilePic" value="yes">
+    <label for="profilePicYes">Yes</label>
+    <input type="radio" id="profilePicNo" name="profilePic" value="no">
+    <label for="profilePicNo">No</label><br>
+    <button onclick="detectFakeProfile()">Detect</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function detectFakeProfile() {
+      var username = document.getElementById("username").value;
+      var followerCount = parseInt(document.getElementById("followerCount").value);
+      var followingCount = parseInt(document.getElementById("followingCount").value);
+      var postCount = parseInt(document.getElementById("postCount").value);
+      var accountType = document.querySelector('input[name="accountType"]:checked').value;
+      var profilePic = document.querySelector('input[name="profilePic"]:checked').value;
+      
+      // Define rules for fake profile detection (dummy rules)
+      if (followerCount > 10000 && followingCount < 100 && postCount < 10 && accountType === "public" && profilePic === "no") {
+        document.getElementById("result").innerHTML = "Username : " + username + "  is likely a Fake Profile.";
+      } else {
+        document.getElementById("result").innerHTML = "Username : " + username + "  is likely Genuine Profile.";
+      }
+    }
+  </script>
+</body>
+</html>
